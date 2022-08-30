@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreLoginRequest;
+use App\Http\Requests\StoreRegisterRequest;
+use App\User;
 
 class AuthController extends Controller
 {
@@ -15,7 +18,12 @@ class AuthController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api', ['except' => ['login']]);
+    $this->middleware('auth:api', ['except' => ['login', 'index', 'register']]);
+  }
+
+  public function index()
+  {
+    return response()->json(['message' => 'Login page']);
   }
 
   /**
@@ -23,15 +31,29 @@ class AuthController extends Controller
    *
    * @return \Illuminate\Http\JsonResponse
    */
-  public function login()
+  public function login(StoreLoginRequest $request)
   {
     $credentials = request(['email', 'password']);
 
-    if (!$token = auth()->attempt($credentials)) {
+    $token = auth()->attempt($credentials);
+    if (!$token) {
       return response()->json(['error' => 'Unauthorized'], 401);
     }
 
     return $this->respondWithToken($token);
+  }
+
+  public function register(StoreRegisterRequest $request)
+  {
+    $name = $request['name'];
+    $email = $request['email'];
+    $password = bcrypt($request['password']);
+    $user = User::create([
+      'name' => $name,
+      'email' => $email,
+      'password' => $password,
+    ]);
+    return response()->json(['message' => 'User created successfully', 'user' => $user], 201);
   }
 
   /**

@@ -19,13 +19,15 @@ use Illuminate\Support\Facades\Route;
 /* }); */
 
 Route::group([
-  'middleware' => 'api',
+  'middleware' => ['auth:api', 'status'],
   'prefix' => 'auth'
 ], function ($router) {
-  /* Route::post('login', 'AuthController@login'); */
   Route::post('logout', 'AuthController@logout');
   Route::post('refresh', 'AuthController@refresh');
   Route::post('me', 'AuthController@me');
+  Route::get('admin', 'Admin\AdminController@index');
 });
 
+Route::get('login', 'AuthController@index')->name('login');
 Route::post('login', 'AuthController@login');
+Route::post('register', 'AuthController@register');
