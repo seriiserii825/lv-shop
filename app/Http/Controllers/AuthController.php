@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreLoginRequest;
 use App\Http\Requests\StoreRegisterRequest;
 use App\User;
+use App\UserRole;
 
 class AuthController extends Controller
 {
@@ -51,8 +52,16 @@ class AuthController extends Controller
     $user = User::create([
       'name' => $name,
       'email' => $email,
-      'password' => $password,
+      'password' => bcrypt($password),
     ]);
+
+    $user_id = $user->id;
+
+    UserRole::create([
+      'user_id' => $user_id,
+      'role_id' => 2,
+    ]);
+
     return response()->json(['message' => 'User created successfully', 'user' => $user], 201);
   }
 
