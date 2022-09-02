@@ -13,17 +13,10 @@ class CreateUserRolesTable extends Migration
    */
   public function up()
   {
-    Schema::create('user_roles', function (Blueprint $table) {
+    Schema::create('user_role', function (Blueprint $table) {
       $table->engine = 'InnoDB';
-      $table->bigInteger('user_id')->unsigned();
-      $table->bigInteger('role_id')->unsigned()->default(2);
-      $table->foreign('user_id')
-        ->references('id')->on('users')
-        ->onDelete('cascade')
-        ->onUpdate('cascade');
-      $table->foreign('role_id')
-        ->references('id')->on('roles')
-        ->onUpdate('cascade');
+      $table->foreignId('user_id')->constrained();
+      $table->foreignId('role_id')->constrained();
       $table->timestamps();
     });
   }

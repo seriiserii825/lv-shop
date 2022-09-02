@@ -38,7 +38,7 @@ class AuthController extends Controller
 
     $token = auth()->attempt($credentials);
     if (!$token) {
-      return response()->json(['error' => 'Unauthorized'], 401);
+      return response()->json(['error' => 'Email or password are wrong'], 400);
     }
 
     return $this->respondWithToken($token);
@@ -52,7 +52,7 @@ class AuthController extends Controller
     $user = User::create([
       'name' => $name,
       'email' => $email,
-      'password' => bcrypt($password),
+      'password' => $password,
     ]);
 
     $user_id = $user->id;
@@ -70,9 +70,15 @@ class AuthController extends Controller
    *
    * @return \Illuminate\Http\JsonResponse
    */
-  public function me()
+  public function user()
   {
-    return response()->json(auth()->user());
+    $user_id = Auth::user()->id;
+    $user = User::query()->where('id', $user_id)->first();
+    $user = $user->roles;
+    return response()->json([
+      'user' => auth()->user(),
+      'role' => $user
+    ]);
   }
 
   /**
