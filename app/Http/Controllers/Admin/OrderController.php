@@ -48,7 +48,8 @@ class OrderController extends Controller
    */
   public function show($id)
   {
-    //
+    $order = Order::find($id);
+    return new OrderResource($order);
   }
 
   /**
@@ -59,7 +60,8 @@ class OrderController extends Controller
    */
   public function edit($id)
   {
-    //
+    $order = Order::find($id);
+    return new OrderResource($order);
   }
 
   /**

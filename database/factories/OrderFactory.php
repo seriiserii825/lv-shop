@@ -5,7 +5,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Order::class, function (Faker $faker) {
   return [
-    'user_id' => $faker->numberBetween(2, 3),
+    'user_id' => 2,
     'status' => '0',
     'currency' => 'USD',
     'note' => 'Note',
