@@ -33,6 +33,7 @@ Route::group([
 ], function ($router) {
   Route::apiResources([
     'media' => 'Admin\MediaController',
+    'order' => 'Admin\OrderController',
   ]);
   Route::get('admin', 'Admin\AdminController@index');
 });
