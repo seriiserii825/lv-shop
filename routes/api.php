@@ -36,6 +36,7 @@ Route::group([
     'order' => 'Admin\OrderController',
     'product' => 'Admin\ProductController',
     'user' => 'Admin\UserController',
+    'category' => 'Admin\CategoryController',
   ]);
   Route::get('admin', 'Admin\AdminController@index');
 });
