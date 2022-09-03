@@ -22,8 +22,20 @@ class UsersTableSeeder extends Seeder
       ],
       [
         'id' => 2,
-        'name' => 'user',
+        'name' => 'serii',
         'email' => 'u@u.ru',
+        'password' => bcrypt(12345678),
+      ],
+      [
+        'id' => 3,
+        'name' => 'radu',
+        'email' => 'r@r.ru',
+        'password' => bcrypt(12345678),
+      ],
+      [
+        'id' => 4,
+        'name' => 'nixon',
+        'email' => 'n@n.ru',
         'password' => bcrypt(12345678),
       ],
     ];
