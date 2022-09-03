@@ -34,6 +34,7 @@ Route::group([
   Route::apiResources([
     'media' => 'Admin\MediaController',
     'order' => 'Admin\OrderController',
+    'product' => 'Admin\ProductController',
   ]);
   Route::get('admin', 'Admin\AdminController@index');
 });
