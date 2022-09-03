@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateOrderRequest;
 use App\Http\Resources\OrderResource;
 use App\Order;
 use Illuminate\Http\Request;
@@ -71,9 +72,11 @@ class OrderController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, $id)
+  public function update(UpdateOrderRequest $request, $id)
   {
-    //
+    $order = Order::find($id);
+    $order->update($request->validated());
+    return new OrderResource($order);
   }
 
   /**
@@ -84,6 +87,8 @@ class OrderController extends Controller
    */
   public function destroy($id)
   {
-    //
+    $order = Order::find($id);
+    $order->delete();
+    return response()->noContent();
   }
 }
