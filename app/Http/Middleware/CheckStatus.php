@@ -16,10 +16,10 @@ class CheckStatus
    */
   public function handle($request, Closure $next)
   {
-    if (Auth::user()) {
+    if (Auth::user() && Auth::user()->isAdministrator()) {
       return $next($request);
     } else {
-      return response()->json(['error' => 'Unauthorized'], 401);
+      return response()->json(['error' => 'Not administrator'], 401);
     }
   }
 }
