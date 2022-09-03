@@ -9,7 +9,10 @@ class Category extends Model
   protected $fillable = [
     'title',
     'parent_id',
-    'keywords',
-    'description',
   ];
+
+  public function parent()
+  {
+    return $this->belongsTo(Category::class, 'parent_id');
+  }
 }

@@ -48,7 +48,8 @@ class CategoryController extends Controller
    */
   public function show($id)
   {
-    //
+    $category = Category::find($id);
+    return new CategoryResource($category);
   }
 
   /**
@@ -71,7 +72,9 @@ class CategoryController extends Controller
    */
   public function update(Request $request, $id)
   {
-    //
+    $category = Category::find($id);
+    $category->update($request->all());
+    return new CategoryResource($category);
   }
 
   /**
