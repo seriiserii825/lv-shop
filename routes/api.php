@@ -24,7 +24,7 @@ Route::group([
 ], function ($router) {
   Route::post('logout', 'AuthController@logout');
   Route::post('refresh', 'AuthController@refresh');
-  Route::get('user', 'AuthController@user');
+  Route::get('me', 'AuthController@me');
 });
 
 Route::group([
@@ -35,6 +35,7 @@ Route::group([
     'media' => 'Admin\MediaController',
     'order' => 'Admin\OrderController',
     'product' => 'Admin\ProductController',
+    'user' => 'Admin\UserController',
   ]);
   Route::get('admin', 'Admin\AdminController@index');
 });

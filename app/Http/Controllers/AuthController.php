@@ -70,7 +70,7 @@ class AuthController extends Controller
    *
    * @return \Illuminate\Http\JsonResponse
    */
-  public function user()
+  public function me()
   {
     $user_id = Auth::user()->id;
     $user = User::query()->where('id', $user_id)->first();
