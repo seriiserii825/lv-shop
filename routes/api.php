@@ -39,6 +39,7 @@ Route::group([
     'category' => 'Admin\CategoryController',
   ]);
   Route::get('admin', 'Admin\AdminController@index');
+  Route::get('user-get-all', 'Admin\UserController@getAll');
 });
 
 Route::get('login', 'AuthController@index')->name('login');
