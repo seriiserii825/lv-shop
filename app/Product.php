@@ -19,4 +19,8 @@ class Product extends Model
     'img',
     'hit'
   ];
+
+  public function category(){
+    return $this->belongsTo('App\Category');
+  }
 }
