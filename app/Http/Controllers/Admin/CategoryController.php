@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Resources\CategoryResource;
 use Illuminate\Http\Request;
 
@@ -35,9 +36,10 @@ class CategoryController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(StoreCategoryRequest $request)
   {
-    //
+    $category = Category::create($request->validated());
+    return new CategoryResource($category);
   }
 
   /**
