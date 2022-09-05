@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AttributeResource extends JsonResource
+class AttributeValueResource extends JsonResource
 {
   /**
    * Transform the resource into an array.
@@ -16,8 +16,8 @@ class AttributeResource extends JsonResource
   {
     return [
       'id' => $this->id,
-      'title' => $this->title,
-      'values' => AttributeValueResource::collection($this->values),
+      'attr_group_id' => $this->attr_group_id,
+      'value' => $this->value,
     ];
   }
 }
