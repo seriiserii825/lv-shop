@@ -17,10 +17,10 @@ class CreateAttributeValuesTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->bigIncrements('id');
-            $table->string('value',255)->unique();
+            $table->string('title',255)->unique();
             $table->bigInteger('attr_group_id')->unsigned();
-
             $table->index('attr_group_id');
+            $table->timestamps();
         });
     }
 

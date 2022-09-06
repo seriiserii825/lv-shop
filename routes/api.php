@@ -38,6 +38,7 @@ Route::group([
     'user' => 'Admin\UserController',
     'category' => 'Admin\CategoryController',
     'attribute' => 'Admin\AttributeController',
+    'attribute-value' => 'Admin\AttributeValueController',
   ]);
   Route::get('admin', 'Admin\AdminController@index');
   Route::get('user-get-all', 'Admin\UserController@getAll');
