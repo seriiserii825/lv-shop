@@ -17,23 +17,11 @@ class AttributeGroupsSeeder extends Seeder
     $data = [
       [
         'id' => '1',
-        'title' => 'Механизм',
+        'title' => 'Color',
       ],
       [
         'id' => '2',
-        'title' => 'Стекло',
-      ],
-      [
-        'id' => '3',
-        'title' => 'Ремешок',
-      ],
-      [
-        'id' => '4',
-        'title' => 'Корпус',
-      ],
-      [
-        'id' => '5',
-        'title' => 'Индикация',
+        'title' => 'Size',
       ],
     ];
     DB::table('attribute_groups')->insert($data);
