@@ -17,17 +17,13 @@ class AdminOrderProductsSeeder extends Seeder
     $data = [];
 
 
-    for ($y = 1; $y <= 12; $y++) {
-      for ($i = 1; $i <= 5; $i++) {
-        $data[] = [
-          'order_id' => $y,
-          'product_id' => $i,
-          'qty' => rand(1, 4),
-          'title' => 'Casio Test Prod',
-          'price' => rand(40, 200),
-        ];
-      }
-    }
+    $data[] = [
+      'order_id' => 1,
+      'product_id' => 1,
+      'qty' => rand(1, 4),
+      'title' => 'Casio Test Prod',
+      'price' => rand(40, 200),
+    ];
 
 
     DB::table('order_products')->insert($data);
