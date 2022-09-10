@@ -43,6 +43,7 @@ class ProductController extends Controller
   {
     $product = Product::create($request->validated());
     $product->related()->sync($request->related);
+    $product->attributes()->sync($request['attributes']);
     return new ProductResource($product);
   }
 

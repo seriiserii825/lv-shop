@@ -12,19 +12,11 @@ class AttributeProductsSeeder extends Seeder
    */
   public function run()
   {
-    $data = [];
+    $data = [
+          'attr_id' => 1,
+          'product_id' => 1,
+    ];
 
-    for ($y = 1; $y <= 19; $y++) {
-      for ($i = 1; $i <= 17; $i++) {
-        $data[] = [
-          'attr_id' => $y,
-          'product_id' => $i,
-        ];
-      }
-    }
-
-
-
-    DB::table('attribute_products')->insert($data);
+    DB::table('product_attribute')->insert($data);
   }
 }

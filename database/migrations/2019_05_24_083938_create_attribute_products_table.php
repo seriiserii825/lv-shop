@@ -13,7 +13,7 @@ class CreateAttributeProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('attribute_products', function (Blueprint $table) {
+        Schema::create('product_attribute', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->bigInteger('attr_id');
