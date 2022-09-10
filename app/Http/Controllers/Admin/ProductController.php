@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
   public function index()
   {
-    return ProductResource::collection(Product::limit(10)->get());
+    return ProductResource::collection(Product::query()->orderBy('updated_at', 'desc')->get());
   }
 
   public function search()

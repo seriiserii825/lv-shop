@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id')->unsigned();
             $table->tinyInteger('category_id')->unsigned();
             $table->tinyInteger('brand_id')->unsigned();
-            $table->string('title',255);
+            $table->string('title',255)->unique();
             $table->string('alias',255)->nullable();
             $table->text('content')->nullable();
             $table->float('price')->default(0);

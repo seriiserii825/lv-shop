@@ -28,14 +28,14 @@ class StoreProductRequest extends FormRequest
     return [
       'category_id' => 'required|exists:categories,id',
       'brand_id' => 'nullable',
-      'title' => 'required|string|max:255',
+      'title' => 'required|string|max:255|unique:products,title',
       'content' => 'required|string',
       'price' => 'required|numeric',
       'old_price' => 'nullable|numeric',
-      'status' => 'required|in:0,1',
+      'status' => 'required',
       'description' => 'nullable|string',
       'img' => 'nullable|string',
-      'hit' => 'nullable|in:0,1',
+      'hit' => 'nullable',
     ];
   }
 
