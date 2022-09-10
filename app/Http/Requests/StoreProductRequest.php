@@ -35,6 +35,7 @@ class StoreProductRequest extends FormRequest
       'status' => 'required',
       'description' => 'nullable|string',
       'img' => 'nullable|string',
+      'gallery' => 'nullable',
       'hit' => 'nullable',
     ];
   }

@@ -17,6 +17,7 @@ class Product extends Model
     'status',
     'description',
     'img',
+    'gallery',
     'hit'
   ];
 
