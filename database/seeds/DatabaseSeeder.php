@@ -25,6 +25,6 @@
             $this->call(RelatedProductsSeeder::class);
             $this->call(OrdersSeeder::class);
             $this->call(AdminOrderProductsSeeder::class);
-            $this->call(MediaSeeder::class);
+            /* $this->call(MediaSeeder::class); */
         }
     }

@@ -13,7 +13,7 @@ class CreateRelatedProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('related_products', function (Blueprint $table) {
+        Schema::create('product_related', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->bigInteger('product_id')->unsigned();
@@ -30,6 +30,6 @@ class CreateRelatedProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('related_products');
+        Schema::dropIfExists('product_related');
     }
 }

@@ -13,18 +13,14 @@ class RelatedProductsSeeder extends Seeder
   public function run()
   {
 
-    $data = [];
-
-    for ($y = 1; $y <= 17; $y++) {
-      for ($i = 1; $i <= 3; $i++) {
-        $data[] = [
-          'product_id' => $y,
-          'related_id' => $i,
-        ];
-      }
-    }
+    $data = [
+      [
+        'product_id' => 1,
+        'related_id' => 2,
+      ]
+    ];
 
 
-    DB::table('related_products')->insert($data);
+    DB::table('product_related')->insert($data);
   }
 }

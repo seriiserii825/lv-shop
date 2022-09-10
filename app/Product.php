@@ -20,7 +20,13 @@ class Product extends Model
     'hit'
   ];
 
-  public function category(){
+  public function category()
+  {
     return $this->belongsTo('App\Category');
+  }
+
+  public function related()
+  {
+    return $this->belongsToMany(Related::class);
   }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Resources\ProductResource;
+use App\Http\Resources\ProductSearchResource;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,13 @@ class ProductController extends Controller
   public function index()
   {
     return ProductResource::collection(Product::limit(10)->get());
+  }
+
+  public function search()
+  {
+    $search = request()->get('search');
+    $products = Product::where('title', 'like', "%$search%")->limit(10)->get();
+    return ProductSearchResource::collection($products);
   }
 
   /**
@@ -34,6 +42,7 @@ class ProductController extends Controller
   public function store(StoreProductRequest $request)
   {
     $product = Product::create($request->validated());
+    $product->related()->sync($request->related);
     return new ProductResource($product);
   }
 

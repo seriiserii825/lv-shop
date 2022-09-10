@@ -42,6 +42,7 @@ Route::group([
   ]);
   Route::get('admin', 'Admin\AdminController@index');
   Route::get('user-get-all', 'Admin\UserController@getAll');
+  Route::get('product-search', 'Admin\ProductController@search');
 });
 
 Route::get('login', 'AuthController@index')->name('login');
