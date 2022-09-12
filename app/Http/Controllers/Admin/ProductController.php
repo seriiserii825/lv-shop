@@ -42,7 +42,6 @@ class ProductController extends Controller
   public function store(StoreProductRequest $request)
   {
     $product = Product::create($request->validated());
-    $product->related()->sync($request->related);
     $product->attributes()->sync($request['attributes']);
     return new ProductResource($product);
   }
@@ -55,7 +54,8 @@ class ProductController extends Controller
    */
   public function show($id)
   {
-    //
+    $product = Product::findOrFail($id);
+    return new ProductResource($product);
   }
 
   /**

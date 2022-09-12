@@ -18,17 +18,13 @@ class Product extends Model
     'description',
     'img',
     'gallery',
-    'hit'
+    'hit',
+    'related'
   ];
 
   public function category()
   {
     return $this->belongsTo('App\Category');
-  }
-
-  public function related()
-  {
-    return $this->belongsToMany(Related::class);
   }
 
   public function attributes()

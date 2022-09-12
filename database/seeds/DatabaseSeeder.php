@@ -22,7 +22,7 @@
             $this->call(CurrenciesSeeder::class);
             $this->call(GalleriesSeeder::class);
             $this->call(ProductsSeeder::class);
-            $this->call(RelatedProductsSeeder::class);
+            /* $this->call(RelatedProductsSeeder::class); */
             $this->call(OrdersSeeder::class);
             $this->call(AdminOrderProductsSeeder::class);
             /* $this->call(MediaSeeder::class); */

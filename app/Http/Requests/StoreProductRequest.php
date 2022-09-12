@@ -37,6 +37,7 @@ class StoreProductRequest extends FormRequest
       'img' => 'nullable|string',
       'gallery' => 'nullable',
       'hit' => 'nullable',
+      'related' => 'nullable',
     ];
   }
 
