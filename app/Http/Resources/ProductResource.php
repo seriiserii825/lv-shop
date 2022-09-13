@@ -30,6 +30,7 @@ class ProductResource extends JsonResource
       'gallery' => $this->gallery,
       'hit' => $this->hit,
       'related' => $this->related,
+      'attributes' => $this->attributes,
     ];
   }
 }
