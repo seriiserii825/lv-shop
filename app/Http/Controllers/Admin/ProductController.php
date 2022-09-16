@@ -41,8 +41,9 @@ class ProductController extends Controller
    */
   public function store(StoreProductRequest $request)
   {
+    $attributes = json_decode($request['attributes']);
     $product = Product::create($request->validated());
-    $product->attributes()->sync($request['attributes']);
+    $product->attributes()->sync($attributes);
     return new ProductResource($product);
   }
 

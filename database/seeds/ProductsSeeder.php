@@ -1,5 +1,7 @@
 <?php
 
+use App\AttributeValue;
+use App\Product;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -28,6 +30,7 @@ class ProductsSeeder extends Seeder
         'description' => '',
         'img' => 'vero-moda-1.jpg',
         'hit' => '1',
+        "related" => "[{\"id\":4,\"title\":\"Top Shop Casual \"},{\"id\":3,\"title\":\"Skirt H&M Casual\"},{\"id\":6,\"title\":\"Top Men\"}]",
       ],
       [
         'id' => '2',
@@ -43,6 +46,7 @@ class ProductsSeeder extends Seeder
         'description' => '',
         'img' => 'Jennyfer-Casual-1.jpg',
         'hit' => '1',
+        "related" => "[{\"id\":4,\"title\":\"Top Shop Casual \"},{\"id\":3,\"title\":\"Skirt H&M Casual\"},{\"id\":6,\"title\":\"Top Men\"}]",
       ],
       [
         'id' => '3',
@@ -58,6 +62,8 @@ class ProductsSeeder extends Seeder
         'description' => '',
         'img' => 'Юбкa-H-M-Casual-1.jpg',
         'hit' => '1',
+        "related" => "[{\"id\":4,\"title\":\"Top Shop Casual \"},{\"id\":3,\"title\":\"Skirt H&M Casual\"},{\"id\":6,\"title\":\"Top Men\"}]",
+
       ],
       [
         'id' => '4',
@@ -73,6 +79,8 @@ class ProductsSeeder extends Seeder
         'description' => '',
         'img' => 'Top-Shop-Casual-1.jpg',
         'hit' => '1',
+        "related" => "[{\"id\":4,\"title\":\"Top Shop Casual \"},{\"id\":3,\"title\":\"Skirt H&M Casual\"},{\"id\":6,\"title\":\"Top Men\"}]",
+
       ],
       [
         'id' => '5',
@@ -88,6 +96,7 @@ class ProductsSeeder extends Seeder
         'description' => '',
         'img' => 'celio-1.jpg',
         'hit' => '1',
+        "related" => "[{\"id\":4,\"title\":\"Top Shop Casual \"},{\"id\":3,\"title\":\"Skirt H&M Casual\"},{\"id\":6,\"title\":\"Top Men\"}]",
       ],
       [
         'id' => '6',
@@ -103,8 +112,22 @@ class ProductsSeeder extends Seeder
         'description' => '',
         'img' => 'top-man-1.jpg',
         'hit' => '1',
+        "related" => "[{\"id\":4,\"title\":\"Top Shop Casual \"},{\"id\":3,\"title\":\"Skirt H&M Casual\"},{\"id\":6,\"title\":\"Top Men\"}]",
+
       ],
     ];
     DB::table('products')->insert($data);
+
+    DB::table('product_attribute')->insert(
+      [
+        'product_id' => 1,
+        'attr_id' => AttributeValue::query()->where('id', 2)->value('id')
+      ],
+      [
+        'product_id' => 1,
+        'attr_id' => AttributeValue::query()->where('id', 5)->value('id')
+      ],
+    );
+    //[2, 4]
   }
 }
