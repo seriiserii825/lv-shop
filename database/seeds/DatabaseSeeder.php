@@ -15,7 +15,7 @@
             $this->call(UsersTableSeeder::class);
             $this->call(UserRolesTableSeeder::class);
             $this->call(AttributeGroupsSeeder::class);
-            $this->call(AttributeProductsSeeder::class);
+            /* $this->call(AttributeProductsSeeder::class); */
             $this->call(AttributeValuesSeeder::class);
             $this->call(BrandsSeeder::class);
             $this->call(CategoriesSeeder::class);

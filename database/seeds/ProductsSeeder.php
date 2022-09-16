@@ -14,7 +14,6 @@ class ProductsSeeder extends Seeder
    */
   public function run()
   {
-
     $data = [
       [
         'id' => '1',
@@ -116,18 +115,24 @@ class ProductsSeeder extends Seeder
 
       ],
     ];
-    DB::table('products')->insert($data);
 
     DB::table('product_attribute')->insert(
       [
         'product_id' => 1,
-        'attr_id' => AttributeValue::query()->where('id', 2)->value('id')
+        'attr_id' => 2
       ],
       [
         'product_id' => 1,
-        'attr_id' => AttributeValue::query()->where('id', 5)->value('id')
+        'attr_id' => 5
+      ],
+      [
+        'product_id' => 2,
+        'attr_id' => 3
+      ],
+      [
+        'product_id' => 2,
+        'attr_id' => 6
       ],
     );
-    //[2, 4]
   }
 }
