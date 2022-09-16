@@ -79,7 +79,10 @@ class ProductController extends Controller
    */
   public function update(Request $request, $id)
   {
-    //
+    $attributes = json_decode($request['attributes']);
+    $product = Product::findOrFail($id);
+    $product->attributes()->sync($attributes);
+    return new ProductResource($product);
   }
 
   /**
