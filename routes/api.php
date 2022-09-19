@@ -48,3 +48,6 @@ Route::group([
 Route::get('login', 'AuthController@index')->name('login');
 Route::post('login', 'AuthController@login');
 Route::post('register', 'AuthController@register');
+
+Route::get('attribute', 'Front\AttributeFrontController@index');
+Route::get('category', 'Front\CategoryFrontController@index');
