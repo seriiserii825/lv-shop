@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
 class UpdateProductRequest extends FormRequest
 {
@@ -28,7 +29,11 @@ class UpdateProductRequest extends FormRequest
     return [
       'category_id' => 'required|exists:categories,id',
       'brand_id' => 'nullable',
-      'title' => 'required|string|max:255|unique:products,title',
+      'title' => [
+        'required',
+        Rule::unique('products')->ignore($this->product)
+      ],
+      /* 'title' => 'required|string|max:255|unique:products,title,' . $this->title, */
       'content' => 'required|string',
       'price' => 'required|numeric',
       'old_price' => 'nullable|numeric',

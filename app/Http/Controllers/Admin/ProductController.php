@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Http\Resources\ProductResource;
 use App\Http\Resources\ProductSearchResource;
 use App\Product;
@@ -77,10 +78,11 @@ class ProductController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, $id)
+  public function update(UpdateProductRequest $request, $id)
   {
     $attributes = json_decode($request['attributes']);
     $product = Product::findOrFail($id);
+    $product->update($request->validated());
     $product->attributes()->sync($attributes);
     return new ProductResource($product);
   }
