@@ -30,4 +30,15 @@ class ProductFrontController extends Controller
       });
     })->orderBy('created_at', 'desc')->get());
   }
+
+  public function show(Request $request, $id)
+  {
+    return new ProductResource(Product::find($id));
+  }
+
+  public function relatedProducts(Request $request)
+  {
+    $related = json_decode($request['related']);
+    return ProductResource::collection(Product::orderBy('created_at', 'desc')->whereIn('id', $related)->get());
+  }
 }

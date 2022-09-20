@@ -53,3 +53,5 @@ Route::get('attribute', 'Front\AttributeFrontController@index');
 Route::get('category', 'Front\CategoryFrontController@index');
 Route::get('last-products', 'Front\ProductFrontController@lastProducts');
 Route::post('filter-products', 'Front\ProductFrontController@index');
+Route::post('related-products', 'Front\ProductFrontController@relatedProducts');
+Route::get('single-product/{id}', 'Front\ProductFrontController@show');
