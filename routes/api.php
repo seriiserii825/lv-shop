@@ -52,3 +52,4 @@ Route::post('register', 'AuthController@register');
 Route::get('attribute', 'Front\AttributeFrontController@index');
 Route::get('category', 'Front\CategoryFrontController@index');
 Route::get('last-products', 'Front\ProductFrontController@lastProducts');
+Route::post('filter-products', 'Front\ProductFrontController@index');
