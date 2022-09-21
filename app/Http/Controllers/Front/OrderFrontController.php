@@ -14,4 +14,9 @@ class OrderFrontController extends Controller
     $order = Order::create($request->validated());
     return new OrderResource($order);
   }
+
+  public function getOrder($id) {
+    $order = Order::where('');
+    return new OrderResource($order);
+  }
 }
