@@ -36,9 +36,10 @@ class OrderController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(UpdateOrderRequest $request)
   {
-    //
+    $order = Order::create($request->validated());
+    return new OrderResource($order);
   }
 
   /**

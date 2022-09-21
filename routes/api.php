@@ -55,3 +55,4 @@ Route::get('last-products', 'Front\ProductFrontController@lastProducts');
 Route::post('filter-products', 'Front\ProductFrontController@index');
 Route::post('related-products', 'Front\ProductFrontController@relatedProducts');
 Route::get('single-product/{id}', 'Front\ProductFrontController@show');
+Route::post('create-order', 'Front\OrderFrontController@store');

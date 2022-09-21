@@ -22,8 +22,9 @@ class CreateOrdersTable extends Migration
 
             $table->timestamps();
             $table->softDeletes();
+            $table->json('cart');
 
-            $table->string('currency',10);
+            $table->string('currency',10)->nullable();
             $table->text('note')->nullable();
             $table->float('sum')->nullable();
         });

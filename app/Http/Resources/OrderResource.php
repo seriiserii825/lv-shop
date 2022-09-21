@@ -23,6 +23,7 @@ class OrderResource extends JsonResource
       'note' => $this->note,
       'sum' => $this->sum,
       'user' => User::query()->where('id', $this->user_id)->first(),
+      'cart' => $this->cart,
       'updated_at' => $this->updated_at,
       'created_at' => $this->created_at,
     ];

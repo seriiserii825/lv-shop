@@ -29,6 +29,7 @@ class UpdateOrderRequest extends FormRequest
       'currency' => 'nullable|string',
       'note' => 'nullable|string',
       'sum' => 'required|numeric',
+      'cart' => 'required|json',
     ];
   }
 }
