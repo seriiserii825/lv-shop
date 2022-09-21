@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateOrderRequest;
 use App\Http\Resources\OrderResource;
 use App\Order;
+use Illuminate\Http\Request;
 
 class OrderFrontController extends Controller
 {
@@ -15,8 +16,9 @@ class OrderFrontController extends Controller
     return new OrderResource($order);
   }
 
-  public function getOrder($id) {
-    $order = Order::where('');
-    return new OrderResource($order);
+  public function getOrder(Request $request, $id)
+  {
+    $order = Order::where('user_id', $id)->where('status', 2)->orderBy('created_at', 'desc')->get();
+    return OrderResource::collection($order);
   }
 }
